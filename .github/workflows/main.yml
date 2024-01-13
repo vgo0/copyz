@@ -1,9 +1,10 @@
 name: 'publish'
 
+# This will trigger the action on each push to the `release` branch.
 on:
   push:
     branches:
-      - main
+      - release
 
 jobs:
   publish-tauri:
@@ -39,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+          tagName: copyz-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
           releaseName: 'Copyz v__VERSION__'
           releaseBody: 'See the assets to download this version and install.'
           releaseDraft: true
